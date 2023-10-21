@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>compiler</title>
+    <script src="https://unpkg.com/vue@3.2.36/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script>
+     const { compile, createApp} = Vue;
+     const html = `<div class="test">hello compile</div>`;
+
+     const renderFn = compile(html);
+     console.log(renderFn)
+     const app = createApp({
+        render: renderFn
+     })
+     app.mount('#app');
+    // 编译器的作用就是把 template中的html编译成render函数 然后在运行中通过render 挂载到对应的DOM
+    // 编译时 可以把html接口的节点 编译成render函数
+</script>
+</html>

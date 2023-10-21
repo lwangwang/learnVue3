@@ -1,0 +1,38 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>time</title>
+    <script src="https://unpkg.com/vue@3.2.36/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<script>
+    // 相同数量的DOM操作和JS计算操作 那个要更快
+
+    const length = 10000;
+
+    //增加一万个dom 节点 查看耗时 16.86279296875 ms
+    console.time('element')
+    for (let i = 0; i < length; i++) {
+        const div = document.createElement('div');
+        document.body.appendChild(div)
+    }
+    console.timeEnd('element')
+
+    // 增加一万个 JS 对象，查看耗时 0.380126953125 ms
+    console.time('js')
+    const divList = []
+    for (let i = 0; i < length; i++) {
+        const ele = {type: 'div' }
+        divList.push(ele)
+    }
+
+    console.timeEnd('js')
+</script>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>命令式编程</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <p></p>
+        </div>
+    </div>
+</body>
+<script>
+    const divEle = document.querySelector('#app')
+    const subDivEle = divEle.querySelector('div')
+    const pEle = subDivEle.querySelector('p')
+    const msg = 'hello world'
+    pEle.innerHTML = msg
+</script>
+</html>

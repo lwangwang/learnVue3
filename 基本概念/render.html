@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>render函数</title>
+    <script src="https://unpkg.com/vue@3.2.36/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<script>
+    const vnode = {
+        type: 'div',
+        props: {
+            class: 'test',
+        },
+        children: 'hello render'
+    }
+
+    function render(vnode) {
+        const ele = document.createElement(vnode.type);
+        ele.className = vnode.props.class;
+        ele.innerHTML = vnode.children;
+        document.body.appendChild(ele)
+    }
+    render(vnode);
+
+</script>
+</html>
